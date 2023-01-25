@@ -1,4 +1,4 @@
-package com.willy.facebox.repisotory;
+package com.willy.facebox.repository;
 
 import com.willy.facebox.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;

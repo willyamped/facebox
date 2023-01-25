@@ -5,10 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity //this annotation is to store this object in DB
 public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //to indicate a primary key for the field below it
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //to generate automatically and auto increment
     private int id;
     private String name;
     private String address;
