@@ -2,11 +2,14 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button, Container, Paper } from '@material-ui/core';
+import { useEffect } from 'react';
 
 export default function Person() {
-  const paperStyle = {padding : '50px 20px', width : 600, margin: "20px auto" }
+  const paperStyle = {padding : '20px 20px', width : 400, margin: "30px auto" }
   const[name, setName] = React.useState('')
   const[address, setAddress] = React.useState('')
+
+  const[persons, setPersons] = React.useState([])
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -23,6 +26,17 @@ export default function Person() {
       setAddress('')
     })
   }
+
+  useEffect(() =>
+  {
+    fetch("http://localhost:8080/person/getAll")
+    .then(res => res.json())
+    .then((result) => {
+      setPersons(result);
+    }
+  )
+}, [])
+
 
   return (
     <Container>
@@ -49,6 +63,17 @@ export default function Person() {
           Submit
           </Button>
         </Box>
+      </Paper>
+
+      <h1>List of People</h1>
+      <Paper elevation = {3} style = {paperStyle}>
+          {persons.map(person => (
+            <Paper elevation = {6} style = {{margin: "10px", padding: "15px", textAlign: "left"}} key = {person.id}>
+              Id: {person.id}<br/>
+              Name: {person.name}<br/>
+              Address: {person.address}
+              </Paper>
+          ))}
       </Paper>
     </Container>
   );
