@@ -14,12 +14,22 @@ public class PersonServiceImpl implements PersonService {
     private PersonRepository personRepository;
 
     @Override
-    public Person savePerson(Person person) {
-        return personRepository.save(person);
+    public void savePerson(Person person) {
+        personRepository.save(person);
     }
 
     @Override
     public List<Person> getAllPersons() {
         return personRepository.findAll();
+    }
+
+    @Override
+    public void deletePerson(int id) {
+        personRepository.deleteById(id);
+    }
+
+    @Override
+    public Person getPersonById(int id) {
+        return personRepository.getReferenceById(id);
     }
 }

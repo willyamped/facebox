@@ -5,6 +5,8 @@ import com.willy.facebox.model.Person;
 import java.util.List;
 
 public interface PersonService {
-    public Person savePerson(Person person);
+    public void savePerson(Person person);
     public List<Person> getAllPersons();
+    public void deletePerson(int id);
+    public Person getPersonById(int id);
 }
