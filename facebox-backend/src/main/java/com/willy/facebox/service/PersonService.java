@@ -9,4 +9,5 @@ public interface PersonService {
     public List<Person> getAllPersons();
     public void deletePerson(int id);
     public Person getPersonById(int id);
+    public void updatePerson(int id, Person person);
 }

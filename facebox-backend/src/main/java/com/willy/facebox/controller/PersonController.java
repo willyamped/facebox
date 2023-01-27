@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,10 +34,18 @@ public class PersonController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String delete(@PathVariable("id") int id) {
+    public String deletePerson(@PathVariable("id") int id) {
         String name = personService.getPersonById(id).getName();
         personService.deletePerson(id);
-        return  name + " has been deleted";
+        return  name + " whose ID is " + id + " has been deleted";
     }
+
+    @PutMapping("/update/{id}")
+    public String updatePerson(@PathVariable("id") int id, @RequestBody Person person) {
+        String currentName = personService.getPersonById(id).getName();
+        personService.updatePerson(id, person);
+        return currentName + " has been replaced by " + person.getName();
+    }
+
 
 }

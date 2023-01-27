@@ -32,4 +32,12 @@ public class PersonServiceImpl implements PersonService {
     public Person getPersonById(int id) {
         return personRepository.getReferenceById(id);
     }
+
+    @Override
+    public void updatePerson(int id, Person person) {
+        Person currentPerson = personRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("ID provided does not exist"));
+        currentPerson.setName(person.getName());
+        currentPerson.setAddress(person.getAddress());
+        savePerson(currentPerson); //even though ID is not specified, it won't create a new row with new ID like post command
+    }
 }
