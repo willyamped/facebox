@@ -37,7 +37,7 @@ public class PersonServiceImpl implements PersonService {
     public void updatePerson(int id, Person person) {
         Person currentPerson = personRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("ID provided does not exist"));
         currentPerson.setName(person.getName());
-        currentPerson.setAddress(person.getAddress());
+        currentPerson.setUrl(person.getUrl());
         savePerson(currentPerson); //even though ID is not specified, it won't create a new row with new ID like post command
     }
 }

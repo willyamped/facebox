@@ -11,7 +11,7 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //to generate automatically and auto increment
     private int id;
     private String name;
-    private String address;
+    private String url;
 
     public Person() {
     }
@@ -32,11 +32,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getUrl() {
+        return url;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
