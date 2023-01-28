@@ -22,7 +22,7 @@ export default function DeleteButton(props) {
         method: "DELETE",
       }
     ).then(() => {
-      alert(`${props.id} has been deleted`)
+      alert(`ID: ${props.id} has been deleted`)
     })
     
     setDeleteOpen(false);

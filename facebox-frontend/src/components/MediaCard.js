@@ -13,7 +13,7 @@ export default function MediaCard(props) {
     <Card sx={{ maxWidth: 345, margin: 2}}>
       <CardMedia
         sx={{ height: 300 }}
-        image= {props.address == null ? "https://www.incimages.com/uploaded_files/image/1920x1080/getty_481292845_77896.jpg" : props.address}
+        image= {props.address ? props.address : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" }
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
