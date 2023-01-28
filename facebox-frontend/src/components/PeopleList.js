@@ -23,7 +23,7 @@ export default function PeopleList() {
       <Paper elevation = {3} style = {paperStyle}>
           {persons.map(person => (
             <>
-                <MediaCard id = {person.id} name = {person.name} address = {person.address} key = {person.id}/>
+                <MediaCard id = {person.id} name = {person.name} url = {person.url} key = {person.id}/>
             </>
           ))}
       </Paper>

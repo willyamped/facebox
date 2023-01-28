@@ -7,7 +7,7 @@ const AddPerson = () => {
 
   const paperStyle = {padding : '20px 20px', width : 400, margin: "30px auto" }
   const[name, setName] = React.useState('')
-  const[address, setAddress] = React.useState('')
+  const[url, setUrl] = React.useState('')
 
   const handleSubmit= (e) => {
     e.preventDefault()
@@ -15,7 +15,7 @@ const AddPerson = () => {
       alert("Name cannot be empty")
       return
     }
-    const person = {name, address}
+    const person = {name, url}
     fetch(
       "http://localhost:8080/person/add", {
         method: "POST",
@@ -25,8 +25,10 @@ const AddPerson = () => {
     ).then(() => {
       alert(`${name} has been added`)
       setName('')
-      setAddress('')
+      setUrl('')
+      window.location.reload(true)
     })
+    
   }
 
   return (
@@ -47,9 +49,9 @@ const AddPerson = () => {
           onChange = {(e) => setName(e.target.value)}
           />
 
-          <TextField id="outlined-basic" label="Address" variant="outlined" fullWidth
-          value = {address}
-          onChange = {(e) => setAddress(e.target.value)}
+          <TextField id="outlined-basic" label="Image URL" variant="outlined" fullWidth
+          value = {url}
+          onChange = {(e) => setUrl(e.target.value)}
           />
           <Button variant="contained" color = "primary" onClick = {handleSubmit}>
           Submit

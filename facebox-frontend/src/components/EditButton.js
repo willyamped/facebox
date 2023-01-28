@@ -9,21 +9,19 @@ export default function EditButton(props) {
   
   const [EditOpen, setEditOpen] = React.useState(false);
   const[name, setName] = React.useState(props.name)
-  const[address, setAddress] = React.useState(props.address)
+  const[url, setUrl] = React.useState(props.url)
 
   const handleEditOpen = () => {
     setEditOpen(true);
   };
 
   const handleEditClose = () => {
-    setName('')
-    setAddress('')
     setEditOpen(false);
   };
 
   const handleEdit = (e) => {
     e.preventDefault()
-    const person = {name, address}
+    const person = {name, url}
     if (!name) {
       alert("Name cannot be empty")
       return
@@ -37,7 +35,8 @@ export default function EditButton(props) {
     ).then(() => {
       alert(`${props.id} has been edited`)
       setName('')
-      setAddress('')
+      setUrl('')
+      window.location.reload(true)
     })
     
     setEditOpen(false);
@@ -75,9 +74,9 @@ return(
         onChange = {(e) => setName(e.target.value)}
         />
 
-        <TextField id="outlined-basic" label="Address" variant="outlined" style = {{width: 300}}
-        value = {address}
-        onChange = {(e) => setAddress(e.target.value)}
+        <TextField id="outlined-basic" label="Image URL" variant="outlined" style = {{width: 300}}
+        value = {url}
+        onChange = {(e) => setUrl(e.target.value)}
         />
       </Box>
       <DialogActions>

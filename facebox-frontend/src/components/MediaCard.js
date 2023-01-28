@@ -13,7 +13,7 @@ export default function MediaCard(props) {
     <Card sx={{ maxWidth: 345, margin: 2}}>
       <CardMedia
         sx={{ height: 300 }}
-        image= {props.address ? props.address : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" }
+        image= {props.url ? props.url : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" }
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -25,7 +25,7 @@ export default function MediaCard(props) {
       </CardContent>
       <CardActions>
         <DeleteButton id = {props.id}/>
-        <EditButton id = {props.id} name = {props.name} address = {props.address}/>
+        <EditButton id = {props.id} name = {props.name} url = {props.url}/>
       </CardActions>
     </Card>
   );

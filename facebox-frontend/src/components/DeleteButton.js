@@ -23,6 +23,7 @@ export default function DeleteButton(props) {
       }
     ).then(() => {
       alert(`ID: ${props.id} has been deleted`)
+      window.location.reload(true)
     })
     
     setDeleteOpen(false);
