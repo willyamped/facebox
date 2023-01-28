@@ -1,18 +1,20 @@
-import * as React from 'react';
+import React from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Button, Container, Paper } from '@material-ui/core';
-import { useEffect } from 'react';
+import { Button, Paper } from '@material-ui/core';
 
-export default function Person() {
+const AddPerson = () => {
+
   const paperStyle = {padding : '20px 20px', width : 400, margin: "30px auto" }
   const[name, setName] = React.useState('')
   const[address, setAddress] = React.useState('')
 
-  const[persons, setPersons] = React.useState([])
-
-  const handleClick = (e) => {
+  const handleSubmit= (e) => {
     e.preventDefault()
+    if (!name) {
+      alert("Name cannot be empty")
+      return
+    }
     const person = {name, address}
     fetch(
       "http://localhost:8080/person/add", {
@@ -27,19 +29,8 @@ export default function Person() {
     })
   }
 
-  useEffect(() =>
-  {
-    fetch("http://localhost:8080/person/getAll")
-    .then(res => res.json())
-    .then((result) => {
-      setPersons(result);
-    }
-  )
-}, [])
-
-
   return (
-    <Container>
+    <div>
       <Paper elevation = {3} style = {paperStyle}>
         <h1>Add a Person</h1>
         <Box
@@ -51,6 +42,7 @@ export default function Person() {
           autoComplete="off">
 
           <TextField id="outlined-basic" label="Name" variant="outlined" fullWidth 
+          required
           value = {name}
           onChange = {(e) => setName(e.target.value)}
           />
@@ -59,22 +51,13 @@ export default function Person() {
           value = {address}
           onChange = {(e) => setAddress(e.target.value)}
           />
-          <Button variant="contained" color = "primary" onClick = {handleClick}>
+          <Button variant="contained" color = "primary" onClick = {handleSubmit}>
           Submit
           </Button>
         </Box>
       </Paper>
-
-      <h1>List of People</h1>
-      <Paper elevation = {3} style = {paperStyle}>
-          {persons.map(person => (
-            <Paper elevation = {6} style = {{margin: "10px", padding: "15px", textAlign: "left"}} key = {person.id}>
-              Id: {person.id}<br/>
-              Name: {person.name}<br/>
-              Address: {person.address}
-              </Paper>
-          ))}
-      </Paper>
-    </Container>
-  );
+    </div>
+  )
 }
+
+export default AddPerson
