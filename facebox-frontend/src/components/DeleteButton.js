@@ -18,7 +18,7 @@ export default function DeleteButton(props) {
   const handleDelete = (e) => {
     e.preventDefault()
     fetch(
-      `http://localhost:8080/person/delete/${props.id}`, {
+      `http://localhost:8081/person/delete/${props.id}`, {
         method: "DELETE",
       }
     ).then(() => {

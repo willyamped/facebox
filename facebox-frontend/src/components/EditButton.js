@@ -27,7 +27,7 @@ export default function EditButton(props) {
       return
     }
     fetch(
-      `http://localhost:8080/person/update/${props.id}`, {
+      `http://localhost:8081/person/update/${props.id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(person)

@@ -9,7 +9,7 @@ export default function PeopleList() {
   
   useEffect(() =>
   {
-    fetch("http://localhost:8080/person/getAll")
+    fetch("http://localhost:8081/person/getAll")
     .then(res => res.json())
     .then((result) => {
       setPersons(result);
