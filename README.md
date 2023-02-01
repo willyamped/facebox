@@ -1,6 +1,6 @@
 # Facebox
 
-Facebox is a simple dockerised full-stack application that stores people's names and faces. The motivation behind this is because I found it difficult to remember new friends' names and faces especially during orientation. This project was built with Java, Spring Boot, React.js, MySQL, Docker
+Facebox is a simple dockerised full-stack application that stores people's names and faces. The motivation behind this project is because often times, I found it difficult to remember my friends' names and faces when meeting them for the first time, especially during orientations. This project was built with Java, Spring Boot, React.js, MySQL, Docker
 
 ## How to Use Facebox
 1. Be sure to have `Docker` and `mvn` (optional) installed on your computer
