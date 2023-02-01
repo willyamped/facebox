@@ -17,7 +17,7 @@ const AddPerson = () => {
     }
     const person = {name, url}
     fetch(
-      "http://localhost:8080/person/add", {
+      "http://localhost:8081/person/add", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(person)
