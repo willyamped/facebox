@@ -13,3 +13,4 @@ Facebox is a simple dockerised full-stack application that stores people's names
 
 ## Limitation
 1. There was a problem when trying to dockerise the backend server as it was not able to connect to the dockerised MySQL server. The current solution to this is to run the backend server as mentioned in Step 3 of the previous section
+2. Some variables could have been put inside an `.env` file. However, I found it slightly troublesome for users who wish to try this application and unnecessary, looking at the current scale of the application 
