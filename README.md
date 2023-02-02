@@ -1,5 +1,9 @@
 # Facebox
 
+<div align="center">
+  <img src="images/facebox.png" alt="web front page" width="80%" height="80%">
+</div>
+
 Facebox is a simple dockerised full-stack application that remembers people's names and faces. The motivation behind this project is because often times, I found it difficult to remember my friends' names and faces when meeting them for the first time, especially during orientations. This project was built with Java, Spring Boot, React.js, MySQL, Docker
 
 ## How to Use Facebox
